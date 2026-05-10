@@ -1,0 +1,31 @@
+﻿@model ColegioSanJose.Models.Alumno
+
+<h1>Nuevo Alumno</h1>
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label>Nombres</label>
+        <input asp-for="Nombres" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Apellidos</label>
+        <input asp-for="Apellidos" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Fecha Nacimiento</label>
+        <input asp-for="FechaNacimiento" class="form-control" type="date" />
+    </div>
+
+    <div class="mb-3">
+        <label>Correo</label>
+        <input asp-for="Correo" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Guardar
+    </button>
+
+</form>

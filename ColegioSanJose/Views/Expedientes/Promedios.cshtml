@@ -1,0 +1,26 @@
+﻿@model IEnumerable<dynamic>
+
+<h2>Promedios por Alumno</h2>
+
+<table class="table table-bordered">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Alumno</th>
+            <th>Promedio</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Alumno</td>
+                <td>@item.Promedio</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

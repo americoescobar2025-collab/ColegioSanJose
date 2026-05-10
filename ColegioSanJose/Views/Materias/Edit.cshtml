@@ -1,0 +1,30 @@
+﻿@model ColegioSanJose.Models.Materia
+
+<h1>Editar Materia</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="IdMateria" />
+
+    <div class="mb-3">
+        <label>Nombre Materia</label>
+
+        <input asp-for="NombreMateria"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Código</label>
+
+        <input asp-for="Codigo"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-warning">
+
+        Guardar Cambios
+
+    </button>
+
+</form>

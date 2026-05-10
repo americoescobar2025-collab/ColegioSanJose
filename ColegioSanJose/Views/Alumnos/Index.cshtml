@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ColegioSanJose.Models.Alumno>
+
+<h1>Listado de Alumnos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Nuevo Alumno
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Nombres</td>
+
+                <td>@item.Apellidos</td>
+
+                <td>
+                    @item.FechaNacimiento.ToShortDateString()
+                </td>
+
+                <td>@item.Correo</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                           asp-route-id="@item.IdAlumno"
+                           class="btn btn-warning btn-sm">
+
+                        Editar
+
+                    </a>
+
+                    <a asp-action="Delete"
+                           asp-route-id="@item.IdAlumno"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('¿Eliminar alumno?')">
+
+                        Eliminar
+
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

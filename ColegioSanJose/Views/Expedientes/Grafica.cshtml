@@ -1,0 +1,82 @@
+﻿<h2 class="mb-3">📊 Dashboard de Rendimiento Académico</h2>
+
+<div style="max-width: 900px; margin:auto;">
+    <canvas id="grafica"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+    fetch('/Expedientes/PromediosData')
+    .then(res => res.json())
+    .then(data => {
+
+    const labels = data.map(x => x.alumno);
+    const valores = data.map(x => x.promedio);
+
+    // 🔥 Gradiente bonito
+    const ctx = document.getElementById('grafica').getContext('2d');
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(54, 162, 235, 0.9)');
+    gradient.addColorStop(1, 'rgba(54, 162, 235, 0.2)');
+
+    new Chart(ctx, {
+    type: 'bar',
+    data: {
+    labels: labels,
+    datasets: [{
+    label: 'Promedio por Alumno',
+    data: valores,
+    backgroundColor: gradient,
+    borderColor: '#36A2EB',
+    borderWidth: 2,
+    borderRadius: 12,
+    hoverBackgroundColor: '#1f7fd6'
+    }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+    legend: {
+    display: true,
+    labels: {
+    font: {
+    size: 14
+    }
+    }
+    },
+    tooltip: {
+    callbacks: {
+    label: function(context) {
+    return 'Promedio: ' + context.raw;
+    }
+    }
+    }
+    },
+    animation: {
+    duration: 1500,
+    easing: 'easeOutBounce'
+    },
+    scales: {
+    y: {
+    beginAtZero: true,
+    max: 10,
+    grid: {
+    color: 'rgba(0,0,0,0.05)'
+    }
+    },
+    x: {
+    grid: {
+    display: false
+    }
+    }
+    }
+    }
+    });
+
+    });
+
+    });
+</script>

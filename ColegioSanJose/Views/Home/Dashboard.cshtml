@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h2 class="mb-4">🎓 Colegio San José</h2>
+
+<style>
+.card-box{
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.bg-alumnos { background: linear-gradient(135deg,#4e73df,#224abe); }
+.bg-materias { background: linear-gradient(135deg,#1cc88a,#13855c); }
+.bg-promedio { background: linear-gradient(135deg,#f6c23e,#dda20a); }
+
+.card-title{
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.card-value{
+    font-size: 32px;
+    font-weight: bold;
+}
+</style>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card-box bg-alumnos">
+            <div class="card-title">Total Alumnos</div>
+            <div class="card-value">@ViewBag.Alumnos</div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card-box bg-materias">
+            <div class="card-title">Total Materias</div>
+            <div class="card-value">@ViewBag.Materias</div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card-box bg-promedio">
+            <div class="card-title">Promedio General</div>
+            <div class="card-value">@ViewBag.Promedio</div>
+        </div>
+    </div>
+
+</div>

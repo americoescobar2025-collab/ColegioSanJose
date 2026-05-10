@@ -1,0 +1,51 @@
+﻿@model ColegioSanJose.Models.Expediente
+
+<h2>Crear Expediente</h2>
+
+<form asp-action="Create">
+
+    <div class="form-group">
+        <label>Alumno</label>
+        <select asp-for="AlumnoId" class="form-control">
+
+            @foreach (var item in ViewBag.Alumnos)
+            {
+                <option value="@item.IdAlumno">
+                    @item.Nombres @item.Apellidos
+                </option>
+            }
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Materia</label>
+        <select asp-for="MateriaId" class="form-control">
+
+            @foreach (var item in ViewBag.Materias)
+            {
+                <option value="@item.IdMateria">
+                    @item.NombreMateria
+                </option>
+            }
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Nota</label>
+        <input asp-for="Nota" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Observaciones</label>
+        <input asp-for="Observaciones" class="form-control" />
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-success">
+        Guardar
+    </button>
+
+</form>
